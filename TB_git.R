@@ -6,15 +6,21 @@ rm(list=ls())
 install.packages("git2r")
 library(git2r)
 
-#helyi repo
-repo <- repository("C:/Users/Tobak Balázs/SA")
+#helyi repo - törlés az egész
+#repo <- repository("C:/Users/Tobak Balázs/SA")
+#add(repo, "TB_git")
+#commit(repo, "TB_git_mod1")
+#status(repo)
 
-add(repo, "TB_git")
-
-commit(repo, "TB_git_mod1")
-
+#ez nem tudom mit csinált, de nem változtatott semmin
+repo <- repository('.')
 status(repo)
-
+add(repo, "*")
+commit(repo, "TB_git_mod2")
+cred <- cred_user_pass("balazstobak", "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_valami")
+pull(repo, credentials = cred)
+#push(repo, credentials = cred)
+push(repo, credentials = cred, force = TRUE)
 =======
 >>>>>>> main
 A <- matrix(c(1:12), 3, 4)
